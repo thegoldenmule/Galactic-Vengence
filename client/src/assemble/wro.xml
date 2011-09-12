@@ -1,0 +1,105 @@
+<groups xmlns="http://www.isdc.ro/wro"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.isdc.ro/wro wro.xsd">
+	
+	<group name="scorched-lib">
+		<js>/lib/jquery-1.6.2.min.js</js>
+		<js>/lib/jquery-ui-1.8.16.custom.min.js</js>
+		<js>/lib/modernizr-1.6.min.js</js>
+		
+		<!-- box2d -->
+		<js>/lib/protoclass.js</js>
+		<js>/lib/box2d/common/b2Settings.js</js>
+		<js>/lib/box2d/common/math/b2Vec2.js</js>
+		<js>/lib/box2d/common/math/b2Mat22.js</js>
+		<js>/lib/box2d/common/math/b2Math.js</js>
+		<js>/lib/box2d/collision/b2AABB.js</js>
+		<js>/lib/box2d/collision/b2Bound.js</js>
+		<js>/lib/box2d/collision/b2BoundValues.js</js>
+		<js>/lib/box2d/collision/b2Pair.js</js>
+		<js>/lib/box2d/collision/b2PairCallback.js</js>
+		<js>/lib/box2d/collision/b2BufferedPair.js</js>
+		<js>/lib/box2d/collision/b2PairManager.js</js>
+		<js>/lib/box2d/collision/b2BroadPhase.js</js>
+		<js>/lib/box2d/collision/b2Collision.js</js>
+		<js>/lib/box2d/collision/Features.js</js>
+		<js>/lib/box2d/collision/b2ContactID.js</js>
+		<js>/lib/box2d/collision/b2ContactPoint.js</js>
+		<js>/lib/box2d/collision/b2Distance.js</js>
+		<js>/lib/box2d/collision/b2Manifold.js</js>
+		<js>/lib/box2d/collision/b2OBB.js</js>
+		<js>/lib/box2d/collision/b2Proxy.js</js>
+		<js>/lib/box2d/collision/ClipVertex.js</js>
+		<js>/lib/box2d/collision/shapes/b2Shape.js</js>
+		<js>/lib/box2d/collision/shapes/b2ShapeDef.js</js>
+		<js>/lib/box2d/collision/shapes/b2BoxDef.js</js>
+		<js>/lib/box2d/collision/shapes/b2CircleDef.js</js>
+		<js>/lib/box2d/collision/shapes/b2CircleShape.js</js>
+		<js>/lib/box2d/collision/shapes/b2MassData.js</js>
+		<js>/lib/box2d/collision/shapes/b2PolyDef.js</js>
+		<js>/lib/box2d/collision/shapes/b2PolyShape.js</js>
+		<js>/lib/box2d/dynamics/b2Body.js</js>
+		<js>/lib/box2d/dynamics/b2BodyDef.js</js>
+		<js>/lib/box2d/dynamics/b2CollisionFilter.js</js>
+		<js>/lib/box2d/dynamics/b2Island.js</js>
+		<js>/lib/box2d/dynamics/b2TimeStep.js</js>
+		<js>/lib/box2d/dynamics/contacts/b2ContactNode.js</js>
+		<js>/lib/box2d/dynamics/contacts/b2Contact.js</js>
+		<js>/lib/box2d/dynamics/contacts/b2ContactConstraint.js</js>
+		<js>/lib/box2d/dynamics/contacts/b2ContactConstraintPoint.js</js>
+		<js>/lib/box2d/dynamics/contacts/b2ContactRegister.js</js>
+		<js>/lib/box2d/dynamics/contacts/b2ContactSolver.js</js>
+		<js>/lib/box2d/dynamics/contacts/b2CircleContact.js</js>
+		<js>/lib/box2d/dynamics/contacts/b2Conservative.js</js>
+		<js>/lib/box2d/dynamics/contacts/b2NullContact.js</js>
+		<js>/lib/box2d/dynamics/contacts/b2PolyAndCircleContact.js</js>
+		<js>/lib/box2d/dynamics/contacts/b2PolyContact.js</js>
+		<js>/lib/box2d/dynamics/b2ContactManager.js</js>
+		<js>/lib/box2d/dynamics/b2World.js</js>
+		<js>/lib/box2d/dynamics/b2WorldListener.js</js>
+		<js>/lib/box2d/dynamics/joints/b2JointNode.js</js>
+		<js>/lib/box2d/dynamics/joints/b2Joint.js</js>
+		<js>/lib/box2d/dynamics/joints/b2JointDef.js</js>
+		<js>/lib/box2d/dynamics/joints/b2DistanceJoint.js</js>
+		<js>/lib/box2d/dynamics/joints/b2DistanceJointDef.js</js>
+		<js>/lib/box2d/dynamics/joints/b2Jacobian.js</js>
+		<js>/lib/box2d/dynamics/joints/b2GearJoint.js</js>
+		<js>/lib/box2d/dynamics/joints/b2GearJointDef.js</js>
+		<js>/lib/box2d/dynamics/joints/b2MouseJoint.js</js>
+		<js>/lib/box2d/dynamics/joints/b2MouseJointDef.js</js>
+		<js>/lib/box2d/dynamics/joints/b2PrismaticJoint.js</js>
+		<js>/lib/box2d/dynamics/joints/b2PrismaticJointDef.js</js>
+		<js>/lib/box2d/dynamics/joints/b2PulleyJoint.js</js>
+		<js>/lib/box2d/dynamics/joints/b2PulleyJointDef.js</js>
+		<js>/lib/box2d/dynamics/joints/b2RevoluteJoint.js</js>
+		<js>/lib/box2d/dynamics/joints/b2RevoluteJointDef.js</js>
+		
+		<!-- ES5 -->
+		<!--<js>/lib/ElectroServer-5-Client-JavaScript.js</js>-->
+		
+		<!-- Particle system -->
+		<js>/lib/particle.js</js>
+	</group>
+	
+	<group name="scorched-game">
+		<!-- Utilities -->
+		<js>/thegoldenmule/scorchedearth/util/GameTime.js</js>
+		<js>/thegoldenmule/scorchedearth/util/Math.js</js>
+		<js>/thegoldenmule/scorchedearth/util/TerrainGenerator.js</js>
+		<js>/thegoldenmule/ds/Array2.js</js>
+		
+		<!-- Game -->
+		<js>/thegoldenmule/scorchedearth/Game.js</js>
+		<js>/thegoldenmule/scorchedearth/engine/Renderer.js</js>
+		<js>/thegoldenmule/scorchedearth/engine/Physics.js</js>
+		<js>/thegoldenmule/scorchedearth/engine/WorldListener.js</js>
+		<js>/thegoldenmule/scorchedearth/input/Player.js</js>
+		<js>/thegoldenmule/scorchedearth/input/InputController.js</js>
+		<js>/thegoldenmule/scorchedearth/ui/CanvasController.js</js>
+		<js>/thegoldenmule/scorchedearth/ui/PanelController.js</js>
+		<js>/thegoldenmule/scorchedearth/ui/LoginWindowController.js</js>
+		<js>/thegoldenmule/scorchedearth/engine/EffectsController.js</js>
+		<js>/thegoldenmule/scorchedearth/models/Missile.js</js>
+		<js>/thegoldenmule/scorchedearth/models/Mortar.js</js>
+	</group>
+</groups>

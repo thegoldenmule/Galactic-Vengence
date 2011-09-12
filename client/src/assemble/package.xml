@@ -1,0 +1,44 @@
+<assembly>
+	<id>distribution</id>
+	<formats>
+		<format>dir</format>
+	</formats>
+	<includeBaseDirectory>false</includeBaseDirectory>
+	
+	<!--  Includes website into root of output directory -->
+	<fileSets>
+		<fileSet>
+			<directory>target/min</directory>
+			<outputDirectory>/js/</outputDirectory>
+		</fileSet>
+	</fileSets>
+	
+	<dependencySets>
+		<dependencySet>
+			<includes>
+				<include>com.electrotank.minigolf:minigolf:swf</include>
+			</includes>
+			
+			<useTransitiveDependencies>false</useTransitiveDependencies>
+			<useStrictFiltering>true</useStrictFiltering>
+			<unpack>false</unpack>
+			<outputFileNameMapping>${artifact.artifactId}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+		</dependencySet>
+		
+		<dependencySet>
+			<includes>
+				<include>*:resource</include>
+			</includes>
+
+			<unpackOptions>
+				<excludes>
+					<exclude>META-INF/**</exclude>
+				</excludes>
+			</unpackOptions>
+
+			<outputDirectory>/</outputDirectory>
+			<useTransitiveDependencies>false</useTransitiveDependencies>
+			<unpack>true</unpack>
+		</dependencySet>
+	</dependencySets>
+</assembly>

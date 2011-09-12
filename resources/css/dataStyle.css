@@ -1,0 +1,50 @@
+div #stage {
+	margin:10px auto;
+	border:solid 1px;
+	width:800px;
+	height:600px;
+	background-color:#DDDDDD;
+	position:relative;
+	overflow:hidden;
+}
+
+div #panel {
+	width:600px;
+	height:400px;
+	position:absolute;
+	background-color:#555;
+	left:0px;
+	top:100px; 
+}
+
+div #contentTab {
+	width: 570px;
+	height: inherit;
+	background-color: #00FF00;
+}
+
+div #popoutTab {
+	width: 30px;
+	height: inherit;
+	background-color: #FF0000;
+	position: absolute;
+	top:0px;
+	right:0px;
+}
+
+input {
+	
+}
+
+div #eswindow {
+	font-family:Arial, Helvetica, sans-serif;
+	text-align:center;
+	z-index:1000;
+	width:30%;
+	height:15%;
+	padding: 20px;
+	position:absolute;
+	background-color:#555;
+	left:35%;
+	top:35%;
+}

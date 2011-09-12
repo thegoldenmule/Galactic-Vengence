@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Scorched Earth</title>
+	
+	<!-- Development -->
+	<script type="text/javascript" src="client/src/main/webapp/lib/jquery-1.6.2.min.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/jquery-ui-1.8.16.custom.min.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/modernizr-1.6.min.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/ElectroServer-5-Client-JavaScript.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/protoclass.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/box2d/common/b2Settings.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/box2d/common/math/b2Vec2.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/box2d/common/math/b2Mat22.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/box2d/common/math/b2Math.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/box2d/collision/b2AABB.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/box2d/collision/b2Bound.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/box2d/collision/b2BoundValues.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/box2d/collision/b2Pair.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/box2d/collision/b2PairCallback.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/box2d/collision/b2BufferedPair.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/box2d/collision/b2PairManager.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/box2d/collision/b2BroadPhase.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/box2d/collision/b2Collision.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/box2d/collision/Features.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/box2d/collision/b2ContactID.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/box2d/collision/b2ContactPoint.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/box2d/collision/b2Distance.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/box2d/collision/b2Manifold.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/box2d/collision/b2OBB.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/box2d/collision/b2Proxy.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/box2d/collision/ClipVertex.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/box2d/collision/shapes/b2Shape.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/box2d/collision/shapes/b2ShapeDef.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/box2d/collision/shapes/b2BoxDef.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/box2d/collision/shapes/b2CircleDef.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/box2d/collision/shapes/b2CircleShape.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/box2d/collision/shapes/b2MassData.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/box2d/collision/shapes/b2PolyDef.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/box2d/collision/shapes/b2PolyShape.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/box2d/dynamics/b2Body.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/box2d/dynamics/b2BodyDef.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/box2d/dynamics/b2CollisionFilter.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/box2d/dynamics/b2Island.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/box2d/dynamics/b2TimeStep.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/box2d/dynamics/contacts/b2ContactNode.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/box2d/dynamics/contacts/b2Contact.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/box2d/dynamics/contacts/b2ContactConstraint.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/box2d/dynamics/contacts/b2ContactConstraintPoint.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/box2d/dynamics/contacts/b2ContactRegister.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/box2d/dynamics/contacts/b2ContactSolver.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/box2d/dynamics/contacts/b2CircleContact.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/box2d/dynamics/contacts/b2Conservative.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/box2d/dynamics/contacts/b2NullContact.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/box2d/dynamics/contacts/b2PolyAndCircleContact.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/box2d/dynamics/contacts/b2PolyContact.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/box2d/dynamics/b2ContactManager.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/box2d/dynamics/b2World.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/box2d/dynamics/b2WorldListener.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/box2d/dynamics/joints/b2JointNode.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/box2d/dynamics/joints/b2Joint.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/box2d/dynamics/joints/b2JointDef.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/box2d/dynamics/joints/b2DistanceJoint.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/box2d/dynamics/joints/b2DistanceJointDef.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/box2d/dynamics/joints/b2Jacobian.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/box2d/dynamics/joints/b2GearJoint.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/box2d/dynamics/joints/b2GearJointDef.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/box2d/dynamics/joints/b2MouseJoint.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/box2d/dynamics/joints/b2MouseJointDef.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/box2d/dynamics/joints/b2PrismaticJoint.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/box2d/dynamics/joints/b2PrismaticJointDef.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/box2d/dynamics/joints/b2PulleyJoint.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/box2d/dynamics/joints/b2PulleyJointDef.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/box2d/dynamics/joints/b2RevoluteJoint.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/box2d/dynamics/joints/b2RevoluteJointDef.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/lib/particle.js"></script>
+	
+	<script type="text/javascript" src="client/src/main/webapp/thegoldenmule/scorchedearth/util/GameTime.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/thegoldenmule/scorchedearth/util/Math.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/thegoldenmule/scorchedearth/util/TerrainGenerator.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/thegoldenmule/ds/Array2.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/thegoldenmule/scorchedearth/Game.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/thegoldenmule/scorchedearth/engine/Renderer.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/thegoldenmule/scorchedearth/engine/Physics.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/thegoldenmule/scorchedearth/engine/WorldListener.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/thegoldenmule/scorchedearth/input/Player.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/thegoldenmule/scorchedearth/input/InputController.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/thegoldenmule/scorchedearth/ui/CanvasController.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/thegoldenmule/scorchedearth/ui/PanelController.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/thegoldenmule/scorchedearth/ui/LoginWindowController.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/thegoldenmule/scorchedearth/engine/EffectsController.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/thegoldenmule/scorchedearth/models/Missile.js"></script>
+	<script type="text/javascript" src="client/src/main/webapp/thegoldenmule/scorchedearth/models/Mortar.js"></script>
+	<!-- Deploy -->
+	<!--
+	<script type="text/javascript" src="client/src/main/webapp/lib/ElectroServer-5-Client-JavaScript.js"></script>
+	<script type="text/javascript" src="client/target/min/scorched-lib.js"></script>
+	<script type="text/javascript" src="client/target/min/scorched-game.js"></script>
+	-->
+	
+	<link rel="stylesheet" type="text/css" href="resources/css/dataStyle.css">
+	<link rel="stylesheet" type="text/css" href="resources/css/jquery-ui-1.8.16.custom.css">
+</head>
+<body>
+	<!-- Main stage -->
+	<div>
+		<div id=stage>
+			<!-- Appropriate canvas layers and will be added dynamically -->
+		</div>
+	</div>
+	<!---->
+	
+	<!-- Login -->
+	<div id=loginView>
+		<label for=name>Name:</label>
+		<input type=text id=loginView_usernameField></input>
+	</div>
+	
+	<div id=loginFailureView>
+		<p>I could not connect to the server! You'll have to play alone. Sucker.</p>
+	</div>
+	<!---->
+	
+	<!-- Entry -->
+	<script type="text/javascript">
+		// delay instantiation until the DOM is ready
+		jQuery(document).ready(function() {
+			Game.init();
+		});
+	</script>
+	<!---->
+</body>
+</html>

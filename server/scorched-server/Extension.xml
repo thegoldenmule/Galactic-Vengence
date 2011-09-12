@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Extension>
+	<Name>ScorchedServer</Name>
+    <EventHandlers>
+    	<LoginHandlers>
+	        <LoginHandler>
+	            <Handle>LoginHandler</Handle>
+	            <Type>Java</Type>
+	            <Path>com.thegoldenmule.scorched.extensions.LoginHandler</Path>
+	        </LoginHandler>
+        </LoginHandlers>
+    </EventHandlers>
+    <Plugins>
+        <Plugin>
+            <Handle>GameTypePlugin</Handle>
+            <Type>Java</Type>
+            <Path>com.thegoldenmule.scorched.plugins.GameTypePlugin</Path>
+            <Synchronized>false</Synchronized>
+        </Plugin>
+        <Plugin>
+            <Handle>GameMatchPlugin</Handle>
+            <Type>Java</Type>
+            <Path>com.thegoldenmule.scorched.plugins.GameMatchPlugin</Path>
+            <Synchronized>true</Synchronized>
+        </Plugin>
+    </Plugins>
+</Extension>
