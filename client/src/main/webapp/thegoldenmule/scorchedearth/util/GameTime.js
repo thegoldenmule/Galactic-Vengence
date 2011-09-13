@@ -28,7 +28,7 @@ function GameTime() {
 		_time,
 		_elapsed = 0,
 		_fps = 0,
-		_started = false,
+		_stop = false,
 		_then,
 		_now = Date.now || function() { return (new Date()).getTime(); };
 	
@@ -41,8 +41,10 @@ function GameTime() {
 	};
 	
 	_that.start = function() {
-		if (_started) return;
-		_started = true;
+		if (_stop) {
+			_stop = false;
+			return;
+		}
 		
 		var now = _now(),
 			dt = 1 / 60;
@@ -61,9 +63,7 @@ function GameTime() {
 	
 	// privaleged
 	_that.stop = function() {
-		if (!_started) return;
-		_started = false;
-		
+		_stop = true;
 		_then = null;
 	};
 	

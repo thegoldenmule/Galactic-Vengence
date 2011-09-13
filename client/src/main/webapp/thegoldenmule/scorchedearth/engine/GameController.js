@@ -31,7 +31,7 @@ function GameController() {
 	}
 	
 	function loginWindowCallback(username) {
-		console.log("Attempting to login as " + username);
+		log.debug("Attempting to login as " + username);
 		
 		// attempt to login
 		var lr = new LoginRequest();
@@ -41,9 +41,9 @@ function GameController() {
 		engine.addEventListener(MessageType.LoginResponse, function(response) {
 			engine.removeEventListener(MessageType.LoginResponse, arguments.callee);
 			if (response.successful) {
-				console.log("Login successful.");
+				log.debug("Login successful.");
 			} else {
-				console.log("Could not login with that username.");
+				log.debug("Could not login with that username.");
 			}
 		});
 		engine.send(lr);
@@ -52,25 +52,8 @@ function GameController() {
 	function startSinglePlayer() {
 		console.log("Starting game.");
 		
-		// make players
-		var inputController = Game.input;
-		for (var i = 0, len = Game.engine.config.numberOfPlayers; i < len; i++) {
-			inputController.addPlayer(
-				new Player({
-					color : "#FFFFFF",
-					playerName : "thegoldenmule" + i,
-					angle : 0,
-					power : 750,
-					health : 100,
-					weapons : [
-						new Missile(999),
-						new Mortar(10)
-					]
-				}));
-		}
-		
-		// hand them off to the physics engine
-		Game.engine.physics.createPlayers(players);
+		// create players
+		Game.engine.physics.addPlayers(Game.input.createPlayers(Game.engine.config.numberOfPlayers));
 		
 		// wind
 		var canvasController = Game.engine.canvasController;
@@ -105,9 +88,9 @@ function GameController() {
 		engine.addEventListener(MessageType.CreateOrJoinGameResponse, function(response) {
 			engine.removeEventListener(MessageType.CreateOrJoinGameResponse, arguments.callee);
 			if (response.error) {
-				console.log("Could not join a game : " + response.error);
+				log.debug("Could not join a game : " + response.error);
 			} else {
-				console.log("Joined successfully.");
+				log.debug("Joined successfully.");
 			}
 		});
 		engine.send(qr);
@@ -116,7 +99,14 @@ function GameController() {
 	_that.login = function() {
 		// show loading window
 		$("#loadingView").dialog({
-			modal:true
+			modal:true,
+			resizable:false,
+			draggable:false,
+			open:function(event, ui) { 
+				//hide close button.
+				$(this).parent().children().children('.ui-dialog-titlebar-close').hide();
+			},
+			closeOnEscape:false
 		});
 		
 		// init
@@ -126,12 +116,12 @@ function GameController() {
 			
 			// attempt login
 			if (success) {
-				console.log("Connected successfully.");
+				log.debug("Connected successfully.");
 				
 				// show login prompt
 				_loginWindowController.createLoginWindow(startMultiPlayer);
 			} else {
-				console.log("Could not connect.");
+				log.debug("Could not connect.");
 				_loginWindowController.createConnectionFailureWindow(startSinglePlayer);
 				
 			}

@@ -5,6 +5,7 @@
 	<title>Scorched Earth</title>
 	
 	<!-- Development -->
+	<script type="text/javascript" src="client/src/main/webapp/lib/blackbird.js"></script>
 	<script type="text/javascript" src="client/src/main/webapp/lib/jquery-1.6.2.min.js"></script>
 	<script type="text/javascript" src="client/src/main/webapp/lib/jquery-ui-1.8.16.custom.min.js"></script>
 	<script type="text/javascript" src="client/src/main/webapp/lib/modernizr-1.6.min.js"></script>
@@ -102,6 +103,7 @@
 	
 	<link rel="stylesheet" type="text/css" href="resources/css/dataStyle.css">
 	<link rel="stylesheet" type="text/css" href="resources/css/jquery-ui-1.8.16.custom.css">
+	<link rel="stylesheet" type="text/css" href="resources/css/blackbird.css">
 </head>
 <body>
 	<!-- Main stage -->
@@ -131,6 +133,7 @@
 	
 	<!-- Entry -->
 	<script type="text/javascript">
+	alert(typeof([]));
 		// delay instantiation until the DOM is ready
 		jQuery(document).ready(function() {
 			Game.init();

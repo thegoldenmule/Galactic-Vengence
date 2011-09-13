@@ -28,6 +28,8 @@ Game.init = function(){
 		return;
 	}
 	
+	log.debug("Initializing game.");
+	
 	// add root
 	var stage = Game.stage = document.getElementById("stage");
 	var root = Game.root = document.createElement("canvas");

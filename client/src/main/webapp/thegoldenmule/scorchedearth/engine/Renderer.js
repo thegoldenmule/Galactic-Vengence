@@ -11,10 +11,10 @@ Game.engine.renderer = (function() {
 	
 	function drawVectorShape(body, shape, context) {
 		var scale = Game.engine.config.scale;
-		
 		context.strokeStyle = body.isEarth == true ? "#AC7F24" : "#FF0000";
 		context.fillStyle = context.strokeStyle;
 		context.beginPath();
+		
 		switch(shape.m_type) {
 			case b2Shape.e_polyShape:
 			{
@@ -35,7 +35,7 @@ Game.engine.renderer = (function() {
 			}
 			case b2Shape.e_circleShape:
 			{
-				context.fillStyle = context.strokeStyle;
+				console.log("Draw : " + shape.m_position.x * scale + ", " + shape.m_position.y * scale);
 				context.arc(
 					shape.m_position.x * scale,
 					shape.m_position.y * scale,
@@ -154,7 +154,7 @@ Game.engine.renderer = (function() {
 				if (body.isPlayer) {
 					drawPlayerShape(body, shape, playerContext);
 				} else if (!body.isEarth) {
-					drawVectorShape(body, shape, dynamicsContext);
+					drawVectorShape(body, shape, playerContext);
 				}
 			}
 		}

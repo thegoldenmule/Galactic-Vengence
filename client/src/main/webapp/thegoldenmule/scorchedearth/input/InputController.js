@@ -16,14 +16,14 @@ function InputController(root, config, physics) {
 		return _players;
 	};
 	
-	_that.makeTestPlayers = function() {
+	_that.createPlayers = function(number) {
 		_players = [];
 		
 		var player;
-		for (var i = 0; i < _config.numberOfPlayers; i++) {
+		for (var i = 0; i < number; i++) {
 			player = new Player({
 				color : "#FFFFFF",
-				playerName : "Ben" + i,
+				playerName : "clive" + i,
 				angle : 0,
 				power : 750,
 				health : 100,

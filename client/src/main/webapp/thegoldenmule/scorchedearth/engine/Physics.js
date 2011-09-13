@@ -105,7 +105,7 @@ Game.engine.physics = (function() {
 		return _world.m_gravity.x;
 	};
 	
-	_that.createPlayers = function(players) {
+	_that.addPlayers = function(players) {
 		var scale = Game.engine.config.scale;
 		var positions = [];
 		function isTooClose(position) {
@@ -156,15 +156,25 @@ Game.engine.physics = (function() {
 		var scale = Game.engine.config.scale;
 		var body = player.body;
 		
-		// find the exit point
+		// make a vector in the direction the cannon is pointing
 		var angleVec = b2Math.b2MulMV(new b2Mat22(Math.toRadians(player.angle)), new b2Vec2(0, -3));
 		
+		console.log("Angle : " + player.angle);
+		console.log("Rads : " + Math.toRadians(player.angle));
+		
+		// find the top center of the body
 		var topCenter = body.topLeft.Copy();
 		topCenter.Multiply(1 / scale);
 		topCenter.x += 6 / scale;
 		
+		console.log("Top center : " + topCenter.x + ", " + topCenter.y);
+		
+		// find the end point of the cannon
 		var endP = b2Math.AddVV(topCenter, angleVec);
 		
+		console.log("End point : " + endP.x + ", " + endP.y);
+		
+		// create the shape definition
 		var projectiveDef = new b2CircleDef();
 		projectiveDef.radius = 2 / scale;
 		projectiveDef.density = 1;
@@ -172,7 +182,12 @@ Game.engine.physics = (function() {
 		projectiveDef.restitution = 0.3;
 		
 		// calculate velocity
-		angleVec.Multiply(player.power / 100);
+		angleVec.Multiply(player.power / 1000);
+		
+		console.log("Power : " + player.power);
+		console.log("AngleVec : " + angleVec.x + ", " + angleVec.y);
+		
+		// create body def
 		var projectileBodyDef = new b2BodyDef();
 		projectileBodyDef.position.Set(endP.x, endP.y);
 		projectileBodyDef.linearVelocity = angleVec;

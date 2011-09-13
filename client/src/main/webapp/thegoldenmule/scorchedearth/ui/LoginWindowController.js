@@ -15,7 +15,12 @@ function LoginWindowController(){
 					"Login":function() {
 						$(this).dialog('close');
 					}
-				}
+				},
+				open:function(event, ui) { 
+					//hide close button.
+					$(this).parent().children().children('.ui-dialog-titlebar-close').hide();
+				},
+				closeOnEscape:false
 			});
 		
 		_failureView = $("#loginFailureView");
@@ -24,7 +29,17 @@ function LoginWindowController(){
 				modal:true,
 				draggable:false,
 				resizable:false,
-				title:Game.getRandomErrorTitle()
+				title:Game.getRandomErrorTitle(),
+				closeOnEscape:false,
+				open:function(event, ui) { 
+					//hide close button.
+					$(this).parent().children().children('.ui-dialog-titlebar-close').hide();
+				},
+				buttons:{
+					"Play":function() {
+						$(this).dialog('close');
+					}
+				}
 			});
 	});
 	
