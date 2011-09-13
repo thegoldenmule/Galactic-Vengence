@@ -16,13 +16,11 @@ if ( !window.requestAnimationFrame ) {
 /*************************************************************************/
 
 /**
- * Game.GameTime
+ * GameTime
  * 
  * @author thegoldenmule
  */
-if (!Game) var Game = {};
-
-Game.GameTime = function() {
+function GameTime() {
 	
 	// vars
 	var _that = this,
@@ -58,7 +56,7 @@ Game.GameTime = function() {
 		_jQueryThat.trigger('tick', dt);
 		
 		// use requestAnimFrame
-		window.requestAnimationFrame(start);
+		window.requestAnimationFrame(_that.start);
 	};
 	
 	// privaleged

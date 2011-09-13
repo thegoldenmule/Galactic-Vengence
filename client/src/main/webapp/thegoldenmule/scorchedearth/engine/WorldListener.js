@@ -1,13 +1,12 @@
 function WorldListener() {
-	var _that = this;
-	var physics = Game.engine.physics;
-	var input = Game.input;
-	var scale = Game.engine.config.scale;
+	var _that = this,
+		physics = Game.engine.physics,
+		input = Game.input,
+		scale = Game.engine.config.scale,
+		width = Game.engine.config.getStageWidth(),
+		height = Game.engine.config.getStageHeight();
 	
-	var width = Game.engine.config.getStageWidth();
-	var height = Game.engine.config.getStageHeight();
-	
-	this.tickHandler = function(dt) {
+	_that.tick = function(dt) {
 		return;
 		var players = input.getPlayers(),
 			player,
@@ -31,7 +30,7 @@ function WorldListener() {
 		}
 	};
 	
-	this.onPlayerContact = function(playerBody, contact) {
+	_that.onPlayerContact = function(playerBody, contact) {
 		if (typeof contact.projectileType == "undefined") return;
 		var player = playerBody.player;
 		
@@ -47,7 +46,7 @@ function WorldListener() {
 		}
 	};
 	
-	this.onProjectileContact = function(projectile, contact) {
+	_that.onProjectileContact = function(projectile, contact) {
 		if (contact.IsStatic() && typeof projectile.projectileType != "undefined") {
 			switch(projectile.projectileType) {
 				case "bullet":
@@ -88,7 +87,7 @@ function WorldListener() {
 		}
 	};
 	
-	this.trackProjectile = function(projectile) {
+	_that.trackProjectile = function(projectile) {
 		projectile.onContact = _that.onProjectileContact;
 		
 		// timer
@@ -123,11 +122,13 @@ function WorldListener() {
 			&& (position.x < 0 || position.x > width || position.y < 0 || position.y > height);
 	};
 	
-	this.NotifyBoundaryViolated = function(body) {
+	_that.NotifyBoundaryViolated = function(body) {
 		
 	};
 	
-	this.NotifyJointDestroyed = function(joint) {
+	_that.NotifyJointDestroyed = function(joint) {
 		
 	};
+	
+	return _that;
 }

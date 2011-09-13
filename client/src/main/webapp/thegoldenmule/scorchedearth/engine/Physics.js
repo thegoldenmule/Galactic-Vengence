@@ -185,7 +185,7 @@ Game.engine.physics = (function() {
 	};
 	
 	_that.step = function(dt) {
-		_world.Step(step, 1 /* number of iterations */);
+		_world.Step(dt, 1 /* number of iterations */);
 	};
 	
 	return _that;

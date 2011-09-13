@@ -99,6 +99,7 @@
 		<js>/thegoldenmule/scorchedearth/ui/PanelController.js</js>
 		<js>/thegoldenmule/scorchedearth/ui/LoginWindowController.js</js>
 		<js>/thegoldenmule/scorchedearth/engine/EffectsController.js</js>
+		<js>/thegoldenmule/scorchedearth/GameController.js</js>
 		<js>/thegoldenmule/scorchedearth/models/Missile.js</js>
 		<js>/thegoldenmule/scorchedearth/models/Mortar.js</js>
 	</group>

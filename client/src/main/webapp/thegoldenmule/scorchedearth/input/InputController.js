@@ -1,14 +1,22 @@
 function InputController(root, config, physics) {
-	var _root = root;
-	var _config = config;
-	var _physics = physics;
-	var _players = [];
-	var _currentPlayer = 0;
-	this.getPlayers = function() {
+	var _that = this,
+		_root = root,
+		_config = config,
+		_physics = physics,
+		_players = [],
+		_currentPlayer = 0;
+	
+	_that.addPlayer = function(player) {
+		if (_players.indexOf(player) != -1) return;
+		
+		_players.push(player);
+	}
+	
+	_that.getPlayers = function() {
 		return _players;
 	};
 	
-	this.makePlayers = function() {
+	_that.makeTestPlayers = function() {
 		_players = [];
 		
 		var player;
@@ -29,7 +37,7 @@ function InputController(root, config, physics) {
 		return _players;
 	};
 	
-	this.startRound = function() {
+	_that.startRound = function() {
 		setPlayer(0);
 	};
 	
@@ -87,4 +95,6 @@ function InputController(root, config, physics) {
 		
 		Game.engine.canvasController.updatePlayerInformation(player);
 	};
+	
+	return _that;
 }
